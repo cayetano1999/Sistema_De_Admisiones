@@ -1,0 +1,477 @@
+﻿@model Sistema_de_Admisiones.Models.Solicitud_Admisiones
+
+@{
+    ViewData["Title"] = "Index";
+    var fecha = DateTime.Now.ToString();
+}
+<link href="~/css/site.css" rel="stylesheet" />
+<h2 class="text-center">Registro de Solicitud de Admisión</h2>
+<p class="text-center text-danger">Llene completamente los campos requeridos.</p>
+<br />
+<form asp-action="Index" asp-controller="Solicitud_Admisiones" method="post" enctype="multipart/form-data">
+
+    @if (Alertas.solicitudenviada == "true")
+    {
+        <div class="alert alert-success" role="alert">
+            Solicitud enviada correctamente!
+        </div>
+
+        Alertas.solicitudenviada = "none";
+    }
+
+
+    @if (Alertas.solicitudenviada == "false")
+    {
+        <div class="alert alert-danger" role="alert">
+            Debes de llenar todos los campos
+        </div>
+
+        Alertas.solicitudenviada = "none";
+
+    }
+
+    @if (Alertas.sobrecarga == "existe") {
+
+        <div class="alert alert-danger" role="alert">
+            Uno de los documentos pesa mas de 10 MB
+        </div>
+
+        Alertas.sobrecarga = "none";
+
+    }
+
+
+
+
+
+    <div class=" well bordes" id="datospersonales">
+
+
+
+        <div class="form-row ">
+
+            <h4><span class="glyphicon glyphicon-user"></span> Datos Personales</h4>
+            <br />
+
+            <div class="form-group col-md-4">
+                <label asp-for="Nombre"></label> <span class="text-danger">*</span>
+                <input asp-for="Nombre" class="form-control" readonly id="inputEmail4" placeholder="Nombre">
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+
+                <label asp-for="Apellido"></label> <span class="text-danger">*</span>
+                <input asp-for="Apellido" class="form-control" readonly id="inputEmail4" placeholder="Apellido">
+                <span asp-validation-for="Apellido"></span>
+
+            </div>
+            <div class="form-group col-md-4"> 
+                <label>Fecha de Nacimeinto</label> <span class="text-danger">*</span>
+                <input asp-for="Fecha_Nacimiento" type="date" class="form-control" id="inputEmail4">
+                <span asp-validation-for="Fecha_Nacimiento"></span>
+            </div>
+        </div>
+
+
+
+        <div class="form-row ">
+
+            <div class="form-group col-md-4">
+                <label>Lugar de Nacimiento</label> <span class="text-danger">*</span>
+                <input asp-for="Lugar_Nacimiento" class="form-control" id="inputEmail4" placeholder="Lugar de Nacimiento">
+                <span asp-validation-for="Lugar_Nacimiento"></span>
+            </div>
+            <div class="form-group col-md-4">
+
+                <label asp-for="Edad"></label> <span class="text-danger">*</span>
+                <input asp-for="Edad" class="form-control" id="inputEmail4" placeholder="Edad">
+                <span asp-validation-for="Edad"></span>
+
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="Sexo"></label> <span class="text-danger">*</span>
+                <select asp-for="Sexo" class="form-control">
+
+                    <option>Seleccione el sexo</option>
+                    <option>Masculino</option>
+                    <option>Femenino</option>
+
+                </select>
+                <span asp-validation-for="Sexo"></span>
+            </div>
+        </div>
+
+
+        <div class="form-row ">
+
+            <div class="form-group col-md-4">
+                <label>Teléfono</label> <span class="text-danger">*</span>
+                <input asp-for="Telefono" class="form-control" readonly id="inputEmail4" placeholder="Teléfono">
+                <span asp-validation-for="Telefono"></span>
+            </div>
+            <div class="form-group col-md-4">
+
+                <label asp-for="Direccion"></label> <span class="text-danger">*</span>
+                <input asp-for="Direccion" class="form-control" id="inputEmail4" placeholder="Dirección">
+                <span asp-validation-for="Direccion"></span>
+
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="Email"></label> <span class="text-danger">*</span>
+                <input asp-for="Email" class="form-control" readonly placeholder="E-Mail">
+                <span asp-validation-for="Email"></span>
+            </div>
+        </div>
+
+        <a class="btn btn-primary" id="btnsiguiente2">Siguiente</a> 1/4
+
+
+
+    </div>
+
+
+    <div class=" well bordes" id="datosacademicos">
+
+
+
+        <div class="form-row ">
+
+            <h4><span class="glyphicon glyphicon-education"></span> Datos de Académicos</h4>
+            <br />
+
+            <div class="form-group col-md-4">
+                <label>Centro de Procedencia</label> <span class="text-danger">*</span>
+                <input asp-for="Centro_Procedencia" class="form-control" id="inputEmail4" placeholder="Centro de Procedencia">
+                <span asp-validation-for="Centro_Procedencia"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label>Periodo Escolar (en el que desea der admitido)</label> <span class="text-danger">*</span>
+                <select asp-for="Periodo_Escolar" class="form-control">
+                    <option>Seleccione el Periodo</option>
+                    <option>2018-2019</option>
+
+                </select>
+                <span asp-validation-for="Periodo_Escolar"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label>Nivel Académico (en el que desea ser admitido)</label> <span class="text-danger">*</span>
+                <select asp-for="Nivel" id="nivel" class="form-control">
+                    <option>Seleccione el Nivel</option>
+                    <option>Inicial</option>
+                    <option>Básica</option>
+                    <option>Media</option>
+
+                </select>
+                <span asp-validation-for="Nivel"></span>
+
+
+
+                <script>
+
+
+                    document.querySelector('#nivel').addEventListener('change', prueba);
+                    var cb = document.getElementById("nivel");
+                    var curso = document.getElementById("curso");
+                    var aula = document.getElementById("aula");
+
+
+                    
+
+
+                    function prueba() {
+
+                        if (cb.value == "Inicial") {
+
+
+
+                            document.getElementById('curso').innerText = null
+
+                            function cargar_inicial() {
+
+                                var array = ["Kinder", "Pre-Primario"];
+                                for (var i in array) {
+                                    document.getElementById("curso").innerHTML += "<option value='" + array[i] + "'>" + array[i] + "</option>";
+
+                                }
+                            }
+
+
+
+                            cargar_inicial();
+
+                        }
+
+                        else if (cb.value == "Básica") {
+                            document.getElementById('curso').innerText = null;
+                            document.getElementById('aula').innerText = null;
+                            function cargar_basica() {
+
+                                var array = ["1ro Básica",
+                                    "2do Básica",
+                                    "3ro Básica",
+                                    "4to Básica",
+                                    "5to Básica",
+                                    "6to Básica",
+                                    "7mo Básica",
+                                    "8vo Básica"
+                                ];
+                                for (var i in array) {
+                                    document.getElementById("curso").innerHTML += "<option value='" + array[i] + "'>" + array[i] + "</option>";
+
+                                }
+
+
+                                var array2 = ["1ro B-A",
+                                    "2do B-A",
+                                    "3ro B-A",
+                                    "4to B-A",
+                                    "5to B-A",
+                                    "6to B-A",
+                                    "7mo B-A",
+                                    "8vo B-A"
+                                ];
+                                for (var i in array) {
+                                    document.getElementById("aula").innerHTML += "<option value='" + array2[i] + "'>" + array2[i] + "</option>";
+
+                                }
+
+
+
+
+
+                            }
+
+                            cargar_basica();
+
+
+                        }
+
+                        else if (cb.value == "Media") {
+
+                            document.getElementById('curso').innerText = null;
+                            document.getElementById('aula').innerText = null;
+                            function cargar_media() {
+
+                                var array = ["1ro Bachiller",
+                                    "2do Bachiller",
+                                    "3ro Bachiller",
+                                    "4to Bachiller"
+                                ];
+                                for (var i in array) {
+                                    document.getElementById("curso").innerHTML += "<option value='" + array[i] + "'>" + array[i] + "</option>";
+
+                                }
+
+
+                                var array2 = ["1ro M-A",
+                                    "2do M-A",
+                                    "3ro M-A",
+                                    "4to M-A"
+                                ];
+                                for (var i in array) {
+                                    document.getElementById("aula").innerHTML += "<option value='" + array2[i] + "'>" + array2[i] + "</option>";
+
+                                }
+
+                            }
+
+                            
+
+                               
+
+
+                            cargar_media();
+
+                        }
+
+                    }
+
+
+
+                                    
+
+
+
+                </script>
+
+
+            </div>
+
+        </div>
+
+
+        <div class="form-row ">
+
+
+            <div class="form-group col-md-4">
+                <label>Curso</label> <span class="text-danger">*</span>
+
+                <select asp-for="Curso" id="curso" class="form-control">
+                    <option>Seleccione el Curso</option>
+                    
+
+                </select>
+                <span asp-validation-for="Curso"></span>
+
+            </div>
+
+            <div class="form-group col-md-4">
+                <label>Aula</label> <span class="text-danger">*</span>
+                <select asp-for="Aula" id="aula" class="form-control">
+                    <option>Seleccione su Aula</option>
+                    
+
+                </select>
+                <span asp-validation-for="Aula"></span>
+
+                
+
+
+
+
+            </div>
+
+
+
+
+            <div class="form-group col-md-4">
+                <label>Tanda</label> <span class="text-danger">*</span>
+                <select asp-for="Tanda"  class="form-control">
+                    <option>Seleccione la Tanda</option>
+                    <option>Matutina</option>
+                    <option>Vespertina</option>
+
+
+                </select>
+                <span asp-validation-for="Tanda"></span>
+
+
+
+
+            </div>
+
+
+
+
+            
+
+        </div>
+
+
+
+
+
+
+        <a id="btnsiguiente3" class="btn btn-primary">Siguiente</a>2/4
+
+    </div>
+
+    <div class=" well bordes" id="datospadres">
+
+
+
+        <div class="form-row ">
+
+            <h4><span class="glyphicon glyphicon-heart"></span> Datos de Padres</h4>
+            <br />
+
+            <div class="form-group col-md-4">
+                <label>Nombre del Padre</label> <span class="text-danger">*</span>
+                <input asp-for="Nombre_Padre" class="form-control" id="inputEmail4" placeholder="Nombre del Padre">
+                <span asp-validation-for="Nombre_Padre"></span>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label>Nombre de la Madre</label> <span class="text-danger">*</span>
+                <input asp-for="Nombre_Madre" class="form-control" placeholder="Nombre de la Madre">
+                <span asp-validation-for="Nombre_Madre"></span>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label>Teléfono de Contacto</label> <span class="text-danger">*</span>
+                <input asp-for="Telefono_Padres" class="form-control" placeholder="Telefono de Contacto">
+                <span asp-validation-for="Telefono_Padres"></span>
+
+            </div>
+
+        </div>
+
+
+
+        <a id="btnsiguiente4" class="btn btn-primary">Siguiente</a>3/4
+
+    </div>
+
+    <div class=" well bordes" id="datosdocumentos">
+
+
+
+        <div class="form-row ">
+
+            <h4><span class="glyphicon glyphicon-upload"></span> Subir Documentos</h4>
+            <br />
+
+
+            <div class="form-group col-md-3">
+                <label>Acta de Nacimiento (formato .pdf)</label>
+                <input asp-for="URL_Acta_Nacimiento"  value="RECORD" class="hidden">
+                <input asp-for="URL_Acta_Nacimiento" type="file" max="10000000" name="ACTA" class="custom-file-input form-control" id="customFile">
+                <span asp-validation-for="URL_Acta_Nacimiento"></span>
+            </div>
+
+            <div class="form-group col-md-3">
+                <label>Foto 2x2 (formato .png)</label>
+                <input asp-for="URL_Foto" type="file" name="FOTO" class="custom-file-input form-control" id="customFile">
+                <input asp-for="URL_Foto" value="RECORD" class="hidden">
+                <span asp-validation-for="URL_Foto"></span>
+            </div>
+
+            <div class="form-group col-md-3">
+                <label>Certificado Medico</label>
+                <input asp-for="URL_Certificado_Medico" value="RECORD" class="hidden">
+                <input asp-for="URL_Certificado_Medico" name="CERTIFICADO" type="file" class="custom-file-input form-control" id="customFile">
+                <span asp-validation-for="URL_Certificado_Medico"></span>
+
+            </div>
+
+            <div class="form-group col-md-3">
+                <label>Record de Notas</label>
+                <input asp-for="URL_Record_Notas" value="RECORD" class="hidden">
+                <input asp-for="URL_Record_Notas" type="file" name="RECORD" class="custom-file-input form-control" id="customFile">
+                <span asp-validation-for="URL_Record_Notas"></span>
+
+            </div>
+
+
+        </div>
+
+
+
+        <input asp-for="Fecha_Solicitud" class="hidden">
+        <input asp-for="Usuario" value="Usuario" class="hidden">
+        <input asp-for="ID_Usuario" class="hidden" />
+        <input asp-for="Estado_Solicitud" class="hidden" value="Enviada">
+        <input asp-for="ID_Solicitud"  class="hidden" />
+
+        <input type="submit" id="btnsubmitt" class="btn btn-success"  value="Enviar Solicitud">
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+</form>
+
+
+<script src="~/js/solicitud.js">
+
+
+
+</script>

@@ -1,0 +1,148 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-color: #E8EAF6;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (min-width: 67px) {
+    /* Hide captions */
+    .carousel-caption {
+        margin-top: -40px;
+        position: absolute;
+        margin-right: 150px;
+        color: white;
+    }
+}
+
+
+.borde_formulario {
+    border: 12px;
+    border-radius: 5px;
+    border-color: #0094ff;
+    padding: 10px;
+    padding-top: 20px;
+}
+
+
+.labels_Bacanos {
+    display: block;
+    width: 100px;
+    height: 35px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #555;
+}
+
+.bordes {
+    border-top: solid 10px #B71C1C;
+    border-bottom: solid 10px #B71C1C;
+    background-color: white;
+}
+
+.botonesnav {
+    background-color: transparent;
+    text-decoration:none;
+    border:none;
+    background-color:transparent;
+    width: 150px;
+    font-size: 16px;
+    margin-right: 10px;
+    
+}
+
+.botonesnav:hover{
+
+
+    text-decoration:none;
+    border:none;
+
+
+}
+
+.bordetarjeta {
+
+
+    border-bottom: 2px solid #424242;
+    border-top: 2px solid #424242;
+
+}
+
+.cajitas {
+    border: 3px solid #B71C1C;
+    margin-top: 10px;
+    width: 150px;
+    height: 150px;
+    float: left;
+    align-content: center;
+    border-radius: 100%;
+    background-color: white;
+    
+}
+
+.cajabajita {
+    margin-right: 92px;
+    padding: inherit;
+
+}
+
+.cajitas h5{
+
+
+    margin-bottom: 20px;
+
+}
+
+.footer{
+
+    margin-bottom: 50px;
+
+
+}
+
+.lineas {
+    border: solid 1px #424242;
+}
+
+@media screen and (max-width: 768px) {
+    .lab {
+        font-size: 18px;
+        color: #424242;
+        margin-top: 50px;
+    }
+}
+
+.header-shadow {
+    background-image: url('../images/recibobethel.png');
+    width: 1000px;
+    height: 1000px;
+    background-repeat:no-repeat;
+}
+
+.tabaxd {
+    background-color: #4086CC;
+}

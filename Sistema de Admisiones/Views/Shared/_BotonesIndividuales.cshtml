@@ -1,0 +1,11 @@
+﻿@model Sistema_de_Admisiones.Models.BotonesIndividuales
+
+<a type="text/asa" class="btn btn-sm @Model.tipo_boton"
+   href="@Url.Action(Model.action)@Model.ParametrosdeAction">
+
+    <span class="glyphicon glyphicon-@Model.icono">
+    </span>
+    <span class="sr-only">@Model.bonton_texto</span>
+
+
+</a>

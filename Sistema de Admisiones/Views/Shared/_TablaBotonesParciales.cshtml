@@ -1,0 +1,53 @@
+﻿@model Sistema_de_Admisiones.Models.BotonesIndividuales
+
+<td style="width:150px;">
+    <div class="btn-group" role="group">
+
+        @Html.Partial("_BotonesIndividuales",
+ new BotonesIndividuales
+ {
+
+     action = "Edit",
+     tipo_boton = "btn-primary",
+     icono = "pencil",
+     bonton_texto = "Editar",
+     ID_Evaluacion = Model.ID_Evaluacion,
+     ID_Pago = Model.ID_Pago,
+     ID_Notificacion = Model.ID_Notificacion
+     })
+
+
+        @Html.Partial("_BotonesIndividuales",
+        new BotonesIndividuales
+        {
+
+            action="Details",
+            tipo_boton="btn-success",
+            icono="list",
+            bonton_texto="Detalles",
+
+            ID_Evaluacion = Model.ID_Evaluacion,
+            ID_Pago = Model.ID_Pago,
+            ID_Notificacion = Model.ID_Notificacion
+
+        })
+
+        @Html.Partial("_BotonesIndividuales",
+           new BotonesIndividuales
+           {
+
+               action = "Delete",
+               tipo_boton = "btn-danger",
+               icono = "trash",
+               bonton_texto = "Eliminar",
+
+               ID_Evaluacion = Model.ID_Evaluacion,
+               ID_Pago = Model.ID_Pago,
+               ID_Notificacion = Model.ID_Notificacion
+           })
+
+
+
+    </div>
+
+</td>

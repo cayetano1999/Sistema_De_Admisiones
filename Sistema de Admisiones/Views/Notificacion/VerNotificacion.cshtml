@@ -1,0 +1,60 @@
+﻿@model Sistema_de_Admisiones.Models.Notificaciones
+@{
+    ViewData["Title"] = "Detalles";
+}
+
+<h2 class=" text-center text-info">Detalles de Notificación</h2>
+
+<hr />
+<center>
+    <form asp-action="Editar" asp-controller="Notificacion">
+
+        <div class="col-md-6 alert alert-success" style="float:initial;">
+
+            <input asp-for="Fecha" type="hidden" />
+
+            <input asp-for="ID_Notificacion" type="hidden" />
+
+            <input asp-for="Estado" type="hidden" />
+
+            <input asp-for="ID_Usuario" type="hidden" />
+
+
+            @*Desplegar usuarios detalles*@
+            <div asp-validation-summary="All"></div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label class="control-label" asp-for="Titulo"></label>
+                </div>
+                <div class="col-sm-8" style="padding-bottom:5px">
+                    <input asp-for="Titulo" readonly class="form-control" />
+
+                </div>
+            </div>
+
+
+            
+
+            <div class="row">
+                <div class="col-sm-2">
+                    <label class="control-label" asp-for="Descripcion"></label>
+                </div>
+                <div class="col-sm-8" style="padding-bottom:5px">
+                    <textarea asp-for="Descripcion" readonly class="form-control text-justify" style="height:200px;"></textarea>
+                </div>
+
+            </div>
+            <center>
+                <div class="row">
+
+
+                    
+                    <button type="submit" class=" btn btn-default">Marcar como leída</button>
+
+                </div>
+            </center>
+
+        </div>
+
+    </form>
+</center>

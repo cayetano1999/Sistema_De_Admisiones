@@ -1,0 +1,119 @@
+﻿@model IEnumerable<Sistema_de_Admisiones.Models.Notificaciones>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2 class="text-info text-center"> <span> <img src="~/images/notification.png" style="width:50px;" /> </span>  Notificaciones</h2>
+<p class="text-success text-center"> Notificaciones enviadas desde el departamento de admisiones</p>
+
+
+<div class="form-border well">
+    <table class="table table-condensed table-hover" style="background-color:white;">
+        <tr>
+
+            <th style="background-color:#4086CC">
+                Id
+            </th>
+
+            <th style="background-color:#4086CC">
+                Titulo
+            </th>
+
+            <th style="background-color:#4086CC">
+                Fecha
+            </th>
+            <th style="background-color:#4086CC">
+                Estado
+            </th>
+
+            <th style="background-color:#4086CC">
+                Acciones
+            </th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+
+
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(m => item.ID_Notificacion)
+                </td>
+
+                <td>
+                    <strong>  @Html.DisplayFor(m => item.Titulo)</strong>
+                </td>
+
+                <td>
+                      @Html.DisplayFor(m => item.Fecha)
+                </td>
+                <td>
+                    @if (item.Estado == "Sin Leer")
+                    {<span><img src="~/images/sinleer.png" style="width:20px" /> </span> @Html.DisplayFor(m => item.Estado)
+
+                    }
+                    else
+                    {
+                    <span><img src="~/images/leida.png" style="width:20px" /> </span> @Html.DisplayFor(m => item.Estado)
+                    }
+
+                </td>
+
+
+
+                <td>
+                    @Html.Partial("_BotonesIndividuales",
+                                      new BotonesIndividuales
+                                      {
+
+                                          action = "VerNotificacion",
+                                          tipo_boton = "btn-primary",
+                                          icono = "exclamation-sign",
+                                          bonton_texto = "Eliminar",
+                                          ID_Evaluacion = item.ID_Notificacion
+
+                                      })
+                    @Html.Partial("_BotonesIndividuales",
+                                      new BotonesIndividuales
+                                      {
+
+                                          action = "Eliminar",
+                                          tipo_boton = "btn-danger",
+                                          icono = "trash",
+                                          bonton_texto = "Eliminar",
+                                          ID_Evaluacion = item.ID_Notificacion
+
+                                      })
+
+
+                </td>
+            </tr>
+
+
+
+        }
+    </table>
+
+
+
+    
+    <div>
+
+        <span><img src="~/images/question.png" style="width:30px" /></span> <a class="text-info">Ayuda</a>
+
+    </div>
+
+    @if (Model.Count() == 0)
+    {
+        <div class="alert alert-danger" role="alert">
+            No hay Notificaciones
+        </div>
+
+    }
+
+
+</div>
+
+

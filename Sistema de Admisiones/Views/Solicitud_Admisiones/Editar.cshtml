@@ -1,0 +1,384 @@
+﻿@model Sistema_de_Admisiones.Models.Solicitud_Admisiones
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<h2 class="text-info text-center">Editar Solicitud de Admisión</h2>
+<p class="text-danger text-center">En este formulario hay datos que no pueden ser editados</p>
+
+<form asp-action="Editar" asp-controller="Solicitud_Admisiones" method="post" enctype="multipart/form-data">
+
+    @if (Alertas.editarsolicitud == "yes")
+    {
+        <div class="alert alert-success">
+            <strong> Solicitud Editada Correctamente</strong>
+        </div>
+        <br />
+        Alertas.editarsolicitud = "none";
+    }
+
+
+    @if (Alertas.editarsolicitud == "no")
+    {
+        <div class="alert alert-danger">
+            <strong> No se puedo editar la solicitud</strong>
+        </div>
+        <br />
+        Alertas.editarsolicitud = "none";
+    }
+
+    <div class="well bordes">
+        @if (Alertas.editarsolicitud == "none")
+        {
+        <div asp-validation-summary="All" class="text-danger"></div>
+        }
+        <div class="form-row ">
+
+            <h4 class="text-info"><span class="glyphicon glyphicon-user"></span> Datos Personales</h4>
+            <br />
+
+            <div class="form-group col-md-4">
+                <label asp-for="Nombre"></label>
+                <input asp-for="Nombre" class="form-control" readonly id="inputEmail4" placeholder="Nombre">
+                
+            </div>
+            <div class="form-group col-md-4">
+
+                <label asp-for="Apellido"></label>
+                <input asp-for="Apellido" class="form-control" readonly id="inputEmail4" placeholder="Apellido">
+               
+
+            </div>
+            <div class="form-group col-md-4">
+                <label>Fecha de Nacimeinto</label>
+                <input asp-for="Fecha_Nacimiento" type="date" class="form-control" id="inputEmail4">
+                
+            </div>
+        </div>
+
+
+
+        <div class="form-row ">
+
+            <div class="form-group col-md-4">
+                <label>Lugar de Nacimiento</label>
+                <input asp-for="Lugar_Nacimiento" class="form-control" id="inputEmail4" placeholder="Lugar de Nacimiento">
+             
+            </div>
+            <div class="form-group col-md-4">
+
+                <label asp-for="Edad"></label>
+                <input asp-for="Edad" class="form-control" id="inputEmail4" placeholder="Edad">
+              
+
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="Sexo"></label>
+                <select asp-for="Sexo" class="form-control">
+
+                    <option>Seleccione el sexo</option>
+                    <option>Masculino</option>
+                    <option>Femenino</option>
+
+                </select>
+                <span asp-validation-for="Sexo" class="text-danger"></span>
+            </div>
+        </div>
+
+
+        <div class="form-row ">
+
+            <div class="form-group col-md-4">
+                <label>Teléfono</label>
+                <input asp-for="Telefono" class="form-control" readonly id="inputEmail4" placeholder="Teléfono">
+             
+            </div>
+            <div class="form-group col-md-4">
+
+                <label asp-for="Direccion"></label>
+                <input asp-for="Direccion" class="form-control" id="inputEmail4" placeholder="Dirección">
+               
+
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" readonly placeholder="E-Mail">
+                
+            </div>
+        </div>
+
+        <hr class="lineas" />
+
+
+
+
+
+
+
+
+        <div class="form-row ">
+
+            <h4 class="text-info"><span class="glyphicon glyphicon-education"></span> Datos de Académicos</h4>
+            <br />
+
+            <div class="form-group col-md-4">
+                <label>Centro de Procedencia</label>
+                <input asp-for="Centro_Procedencia" class="form-control" id="inputEmail4" placeholder="Centro de Procedencia">
+               
+            </div>
+            <div class="form-group col-md-4">
+                <label>Periodo Escolar (en el que desea der admitido)</label>
+                <select asp-for="Periodo_Escolar" class="form-control">
+                    <option>Seleccione el Periodo</option>
+                    <option>2018-2019</option>
+
+                </select>
+                <span asp-validation-for="Periodo_Escolar"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label>Nivel Académico (en el que desea ser admitido)</label>
+                <select asp-for="Nivel" class="form-control">
+                    <option>Seleccione el Nivel</option>
+                    <option>Inicial</option>
+                    <option>Básica</option>
+                    <option>Media</option>
+
+                </select>
+                <span asp-validation-for="Nivel"></span>
+
+            </div>
+
+        </div>
+
+
+        <div class="form-row ">
+
+
+            <div class="form-group col-md-4">
+                <label>Curso</label>
+
+                <select asp-for="Curso" class="form-control">
+                    <option>Seleccione el Curso</option>
+                    <option>1ro Bachiller</option>
+                    <option>2do Bachiller</option>
+                    <option>3ro Bachiller</option>
+                    <option>4to Bachiller</option>
+
+                </select>
+                
+
+            </div>
+
+            <div class="form-group col-md-4">
+                <label>Aula</label>
+                <select asp-for="Aula" class="form-control">
+                    <option>Seleccione su Aula</option>
+                    <option>1ro 1-M</option>
+                    <option>2do 2-M</option>
+                    <option>3ro 3-M</option>
+                    <option>4to 4-M</option>
+
+                </select>
+                
+            </div>
+            <div class="form-group col-md-4">
+                <label>Tanda</label>
+                <select asp-for="Tanda" class="form-control">
+                    <option>Seleccione la Tanda</option>
+                    <option>Matutina</option>
+                    <option>Vespertina</option>
+
+
+                </select>
+               
+
+            </div>
+
+
+
+
+
+
+        </div>
+
+
+        <hr class="lineas" />
+
+
+
+
+
+        <div class="form-row">
+
+            <h4 class="text-info"><span class="glyphicon glyphicon-heart"></span> Datos de Padres</h4>
+            <br />
+
+            <div class="form-group col-md-4">
+                <label>Nombre del Padre</label>
+                <input asp-for="Nombre_Padre" class="form-control" id="inputEmail4" placeholder="Nombre del Padre">
+                <span asp-validation-for="Nombre_Padre" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label>Nombre de la Madre</label>
+                <input asp-for="Nombre_Madre" class="form-control" placeholder="Nombre de la Madre">
+                <span asp-validation-for="Nombre_Madre" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label>Teléfono de Contacto</label>
+                <input asp-for="Telefono_Padres" class="form-control" placeholder="Telefono de Contacto">
+                <span asp-validation-for="Telefono_Padres" class="text-danger"></span>
+
+            </div>
+
+        </div>
+
+
+        <hr class="lineas" />
+
+
+
+
+
+        <div class="form-row ">
+
+            <h4 class="text-info"><span class="glyphicon glyphicon-upload"></span> Subir Documentos</h4>
+            <br />
+
+
+            <div class="form-group col-md-3">
+
+                @if (Model.URL_Acta_Nacimiento.Length > 0)
+                {
+                    <a class="text-success" asp-controller="Solicitud_Admisiones" asp-action="Verdocumento" asp-route-documento="@Model.URL_Acta_Nacimiento"> <span class="glyphicon glyphicon-ok-circle"></span> Acta de Nacimiento (click para ver)</a>
+                }
+                else
+                {
+
+                    <a>Acta de Nacimiento (formato .pdf)</a>
+
+                }
+                <input asp-for="URL_Acta_Nacimiento" class="hidden" type="text" value="documento">
+                <input asp-for="URL_Acta_Nacimiento" type="file" name="ACTA" class="custom-file-input form-control" id="customFile">
+                <input type="hidden" name="ACTAOLD" class="custom-file-input form-control" id="customFile" value="@Model.URL_Acta_Nacimiento">
+                <span asp-validation-for="URL_Acta_Nacimiento"></span>
+            </div>
+
+            <div class="form-group col-md-3">
+
+                @if (Model.URL_Foto.Length > 0)
+                {
+
+                    <a class="text-success" asp-controller="Solicitud_Admisiones" asp-action="Verdocumento" asp-route-documento="@Model.URL_Foto"> <span class="glyphicon glyphicon-ok-circle"></span> Foto 2x2 (click para ver)</a>
+                }
+                else
+                {
+                    <a>Foto 2x2 (formato .png)</a>
+                }
+
+
+                <input asp-for="URL_Foto" type="text" value="documento" class="hidden">
+                <input asp-for="URL_Foto" type="file" name="FOTO" class="custom-file-input form-control" id="customFile">
+                <input type="hidden" name="FOTOOLD" class="custom-file-input form-control" id="customFile" value="@Model.URL_Foto">
+                <span asp-validation-for="URL_Foto"></span>
+            </div>
+
+            <div class="form-group col-md-3">
+
+                @if (Model.URL_Certificado_Medico.Length > 0)
+                {
+                    <a class="text-success" asp-controller="Solicitud_Admisiones" asp-action="Verdocumento" asp-route-documento="@Model.URL_Certificado_Medico"> <span class="glyphicon glyphicon-ok-circle"></span> Certificado Medico (click para ver)</a>
+                }
+                else
+                {
+                    <a>Certificado Medico (Formato .pdf)</a>
+                }
+
+
+                <input asp-for="URL_Certificado_Medico" type="text" value="documento" class="hidden">
+                <input asp-for="URL_Certificado_Medico" name="CERTIFICADO" type="file" class="custom-file-input form-control" id="customFile">
+
+                <input type="hidden" name="CERTIFICADOOLD" class="custom-file-input form-control" id="customFile" value="@Model.URL_Certificado_Medico">
+
+                <span asp-validation-for="URL_Certificado_Medico"></span>
+
+            </div>
+
+            <div class="form-group col-md-3">
+
+                @if (Model.URL_Record_Notas.Length > 0)
+                {
+                    <a class="text-success" asp-controller="Solicitud_Admisiones" asp-action="Verdocumento" asp-route-documento="@Model.URL_Record_Notas"> <span class="glyphicon glyphicon-ok-circle"></span>  Record de Notas (click para ver)</a>
+                }
+                else
+                {
+                    <a>Record de Notas (formato .pdf)</a>
+                }
+
+
+
+                <input asp-for="URL_Record_Notas" type="text" value="documento" class="hidden">
+                <input asp-for="URL_Record_Notas" type="file" name="RECORD" class="custom-file-input form-control" id="customFile">
+
+
+                <input type="hidden" name="RECORDOLD" class="custom-file-input form-control" id="customFile" value="@Model.URL_Record_Notas">
+                <span asp-validation-for="URL_Record_Notas"></span>
+
+            </div>
+
+
+        </div>
+
+
+
+        <input asp-for="Fecha_Solicitud" value="@Model.Fecha_Solicitud" class="hidden">
+        <input asp-for="Usuario" value="@Model.Usuario" class="hidden">
+        <input asp-for="ID_Usuario" value="@Model.ID_Usuario" class="hidden">
+        <input asp-for="Estado_Solicitud" class="hidden" value="Enviada">
+        <input asp-for="ID_Solicitud" value="@Model.ID_Solicitud" class="hidden" />
+
+        <input type="submit" id="btnsubmitt" class="btn btn-primary" asp-route-accion="Editar" value="Editar Solicitud">
+
+        <button type="button" data-toggle="modal" data-target="#modaleliminar" class="btn btn-danger" style="float:right;">Eliminar Solicitud</button>
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modaleliminar" tabindex="-1" role="dialog" aria-labelledby="modaleliminar" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle"> <strong>CONFIRMACION</strong> </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <center>
+                        <img src="~/images/alerta.png" style="width:20%" />
+
+                        <h3 class="text-center text-danger">Seguro que deseas eliminar tu solicitud de admisión?</h3>
+                    </center>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" style="float:left;">No</button>
+                    <input class="btn btn-danger" type="submit" asp-route-accion="Eliminar" value="Si">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</form>

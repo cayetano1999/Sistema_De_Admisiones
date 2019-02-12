@@ -1,0 +1,270 @@
+﻿@model Sistema_de_Admisiones.ViewModel.InicioViewModel
+@{
+    ViewData["Title"] = "Inicio";
+    ViewData["Clase"] = "alert alert-info";
+}
+<link href="~/css/site.css" rel="stylesheet" />
+<h2 class="text-center">Inicio</h2>
+@if (Alertas.editarsolicitudnorealizada != "none")
+{
+
+    <div class="alert alert-danger">
+        @Alertas.editarsolicitudnorealizada
+    </div>
+    Alertas.editarsolicitudnorealizada = "none";
+}
+
+@if (Alertas.verhoja != "none")
+{
+    <div class="alert alert-danger">
+       La hoja de admisión será visible luego de que su solicitud de admisión sea aprobada.
+    </div>
+    Alertas.verhoja = "none";
+}
+
+
+
+<div class="col-sm-7">
+    @if (Model.solititudadmision == true)
+    {
+        @if (Model.Estado == "Rechazada")
+        {
+            ViewData["Clase"] = "alert alert-danger";
+        }
+        else if (Model.Estado == "Aprobada")
+        {
+            ViewData["Clase"] = "alert alert-success";
+        }
+        else
+        {
+
+            ViewData["Clase"] = "alert alert-info";
+
+        }
+        <div class="@ViewData["Clase"]  col-sm-7">
+            <p>Estado de Solicitud:</p> <strong>@Model.Estado</strong>
+            <p>¿Puede Editar?:</p> <strong>@Model.Puedeeditar</strong>
+            <p>Proceso Actual:</p> <strong>@Model.Procesoactual</strong>
+        </div>
+    }
+</div>
+
+
+
+
+<div class="col-sm-5 well bordetarjeta ">
+    @*Desplegar usuarios detalles*@
+
+
+    <center>
+        <img src="~/FotosPerfil/@Model.Imagen" style="width:80px; border-radius: 100%" />
+
+
+    </center>
+    <center>
+        <label class="text-info text-center">@Model.NombreCompleto</label>
+    </center>
+
+
+
+    <div class="row">
+        <div class="col-sm-3">
+            <label class="control-label">Rol</label>
+        </div>
+        <div class="col-sm-8" style="padding-bottom:5px">
+            <input asp-for="Rol" disabled class="form-control" />
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-3">
+            <label class="control-label">Telefono</label>
+        </div>
+        <div class="col-sm-8" style="padding-bottom:5px">
+            <input asp-for="Telefono" disabled class="form-control" />
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-3">
+            <label class="control-label">Correo</label>
+        </div>
+        <div class="col-sm-8" style="padding-bottom:5px">
+            <input asp-for="Email" disabled class="form-control" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-3">
+            <label class="control-label">Id</label>
+        </div>
+        <div class="col-sm-8" style="padding-bottom:5px">
+            <input asp-for="ID_Usuario" disabled class="form-control" />
+        </div>
+    </div>
+
+
+</div>
+
+<hr />
+<center>
+    <h3 class="text-center" style="border-bottom: 3px solid #FFFFFF">Procesos</h3>
+
+    <div style="background-color: white; border-top: 4px solid #01579B;" class="col-md-12">
+
+        <div>
+            <div class="col-sm-1 cajabajita">
+                <div class="form-group well cajitas">
+
+                    <h5 class="text-center text-muted"><strong>Entrega de Documentos</strong></h5>
+
+                    <center>
+                        <h4 class="text-center form-control"><strong>@Model.Entrega</strong> </h4>
+                    </center>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="col-sm-1 cajabajita ">
+                <div class="form-group well cajitas">
+                    <h5 class="text-center text-info">Revisión de Documentos</h5>
+                    <center>
+                        <h4 class="text-center form-control"><strong>@Model.Revicion</strong> </h4>
+                    </center>
+
+
+                </div>
+            </div>
+
+
+
+            <div class="col-sm-1 cajabajita">
+                <div class="form-group well cajitas">
+                    <h5 class="text-center text-info">Evaluación Psicológica</h5>
+                    <center>
+                        <h4 class="text-center form-control"><strong>@Model.Psicologica</strong> </h4>
+                    </center>
+
+
+                </div>
+            </div>
+
+
+            <div class="col-sm-1 cajabajita">
+                <div class="form-group well cajitas">
+                    <h5 class="text-center text-info">Evaluación de Conocimientos</h5>
+                    <center>
+                        <h4 class="text-center form-control"><strong>@Model.Conocimientos</strong> </h4>
+                    </center>
+
+
+                </div>
+            </div>
+
+
+            <div class="col-sm-1 cajabajita">
+                <div class="form-group well cajitas">
+                    <h5 class="text-center text-info">Respuesta de Admisión</h5>
+                    <center>
+                        <h4 class="text-center form-control"><strong>@Model.Respuesta</strong> </h4>
+                    </center>
+
+
+                </div>
+            </div>
+
+
+            <div class="col-sm-1 cajabajita ">
+                <div class="form-group well cajitas">
+                    <h5 class="text-center text-info ">Pago de Inscripción</h5>
+                    <center>
+                        <h4 class="text-center form-control"><strong>@Model.Pago</strong> </h4>
+                    </center>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</center>
+<br /><br /><br /><br />
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle"> <strong>REQUISITOS DE ADMISION</strong> </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <a class="text-info">Los requisitos de admisión son los siguientes:</a>
+                <br /><br />
+
+                <span> <img src="~/images/record.png" style="width:20px" />  <strong> Record de Notas</strong> </span>
+                <br /><br />
+
+                <a class="text-justify text-muted">
+
+                    El record de notas debe de ser original, debe contener los sellos correspondiente, estár en buen estado y no tener tachaduras o alteraciones en el mismo. Este documento
+                    debe estár certificado por el distrito educativo correspondiente.
+
+
+                </a>
+                <hr />
+
+
+
+                <span> <img src="~/images/actadenacimiento.png" style="width:20px" />  <strong> Acta de Nacimiento</strong> </span>
+                <br /><br />
+
+                <a class="text-justify text-muted">
+
+                    El acta de nacimiento debe ser original y certificada para fines educativos. Este documento es primordial para empezar con el proceso de admisión y no
+                    debe tener tachaduras ni alteraciones en el mismo.
+
+
+                </a>
+                <hr />
+
+                <span> <img src="~/images/certificadomedico.png" style="width:20px" />  <strong> Certificado Medico</strong> </span>
+                <br /><br />
+
+                <a class="text-justify text-muted">
+
+                    El certificado medico debe ser original.
+
+
+                </a>
+                <hr />
+
+
+                <span> <img src="~/images/man.png" style="width:20px" />  <strong> Fotos 2x2</strong> </span>
+                <br /><br />
+
+                <a class="text-justify text-muted">
+
+                    La foto debe de ser reciente y estár en buen estado.
+
+
+                </a>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <a class="btn btn-primary" asp-controller="Solicitud_Admisiones" asp-action="Index">Solicitar Admisión</a>
+            </div>
+        </div>
+    </div>
+</div>
+

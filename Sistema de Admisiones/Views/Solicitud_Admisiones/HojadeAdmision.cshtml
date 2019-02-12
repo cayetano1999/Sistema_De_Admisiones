@@ -1,0 +1,120 @@
+﻿@model Sistema_de_Admisiones.ViewModel.Hojadeadmision
+@{
+    ViewData["Title"] = "Hoja de Admision";
+}
+
+<link href="~/css/site.css" rel="stylesheet" />
+<div class="well col-sm-12 bordes">
+    <center>
+
+       
+ <img src="~/images/logo.png" class="img-responsive" style="width:10%;" />
+        <h3>Colegio Evangelico Bethel</h3>
+<p class="text-muted text-center">C\Ignacio Arias #142 San Pedro de Macoris RD. Tel: 809-246-3201 <br/> Email: bethelcolegio@hotmail.com</p>
+ <h3 class="text-info text-center">Hoja de Admisión de Estudiante</h3>
+        
+    </center>
+    <hr />
+    <div class="col-sm-12">
+        <center>
+            <div class="col-sm-10 col-lg-offset-1" style="padding:10px 10px 10px 10px;  font-size:16px;">
+                <p class="text-justify">
+
+                    El Departamento de Admsiones del Colegio Evangelico Bethel, tiene a bien realizar el siguiente informe de
+                    la solicitud de admisión a nuestro centro educativo realizada por: <br />
+                    <h3><strong>@Model.Nombre.ToUpper()</strong></h3><br />
+
+                <p class="text-justify">
+                    El/la cual cumplió satisfactoriamente con los procesos requeridos por el centro educativo para poder ser admitido.
+                    A continuación se muestra información de la solitud realizada:
+                </p>
+                <br />
+
+
+                <table class="table table-condensed table-hover table-responsive" style="background-color:white;">
+                    <tr>
+
+                        <th class="tabaxd">
+                            Curso Solicititado
+                        </th>
+
+                        <th class="tabaxd">
+                            Aula Solicitada
+                        </th>
+
+                        <th class="tabaxd">
+                            Tanda Solicitada
+                        </th>
+                        <th class="tabaxd">
+                            Nivel Solicitado
+                        </th>
+
+                        <th class="tabaxd">
+                            Perdiodo Escolar
+                        </th>
+
+                    </tr>
+
+
+
+
+                    <tr>
+
+                        <td>
+                            @Model.Curso
+                        </td>
+
+                        <td>
+                            @Model.Aula
+                        </td>
+
+                        <td>
+                            @Model.Tanda
+                        </td>
+                        <td>
+                            @Model.Nivel
+                        </td>
+
+                        <td>
+                            @Model.Periodo
+                        </td>
+
+
+                    </tr>
+
+
+
+
+                </table>
+
+                ¡Felicidades y le damos a bienvenida a nuestro centro educativo!.
+                <br /><br /><br />
+                <img src="~/images/cello.PNG" class="img-responsive" style="width:120px;" />
+                <h4 class="text-center">Patricia Wiillson</h4>
+
+            </div>
+
+
+
+        </center>
+        
+    </div>
+</div>
+<button class="btn btn-success" id="boton" >Imprimir</button>
+
+
+<script>
+
+    document.querySelector('#boton').addEventListener('click', agregar);
+    var btn = document.getElementById("boton");
+
+    function agregar(){
+
+        btn.style.display = 'none';
+        window.print();
+
+    }
+   
+
+
+</script>

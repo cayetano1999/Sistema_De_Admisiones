@@ -1,0 +1,125 @@
+﻿@model Sistema_de_Admisiones.Models.Pagos
+@{
+    ViewData["Title"] = "Index";
+}
+ <h2 class="text-center">Recibo de Pago de Inscripción</h2>
+
+<div class="col-sm-4">
+
+</div>
+
+<div class="col-sm-8 well bordes">
+
+    <div class="form-group">
+
+
+        <div class="col-sm-3">
+            <img src="~/images/logo.png" style="width:50%; border-radius:5%;" />
+
+        </div>
+
+        <div class="col-sm-7">
+            <h4 class="text-center text-info">Colegio Evangelico Bethel</h4>
+            <h4 class="text-center">RECIBO DE PAGO INSCRIPCION</h4>
+        </div>
+
+
+    </div>
+
+    <div class="form-group col-sm-12">
+        <div class="col-sm-3">
+
+            <h4>Hemos recibido de: </h4>
+
+        </div>
+
+        <div class="col-sm-7">
+
+            <input type="text" class="form-control" value="@Model.Usuario" />
+
+        </div>
+
+    </div>
+
+
+    <div class="form-group col-sm-12">
+        <div class="col-sm-3">
+
+            <h4>La Suma de: </h4>
+
+        </div>
+
+        <div class="col-sm-7">
+
+            <input type="text" class="form-control" value="@Model.Cantidad" />
+
+        </div>
+
+    </div>
+
+
+    <div class="form-group col-sm-12">
+        <div class="col-sm-3">
+
+            <h4>Por Concepto de: </h4>
+
+        </div>
+
+        <div class="col-sm-7">
+
+            <input type="text" class="form-control" value="@Model.Concepto" />
+
+        </div>
+
+    </div>
+
+
+    <div class="form-group col-sm-12">
+        <div class="col-sm-3">
+
+            <h4>Total a Pagar </h4>
+
+        </div>
+
+        <div class="col-sm-7">
+
+            <input type="text" class="form-control" value="@Model.Total" />
+
+        </div>
+
+    </div>
+
+
+    <div class="form-group col-sm-12">
+        <div class="col-sm-3">
+
+            <h4 class="right">Fecha: </h4>
+
+        </div>
+
+        <div class="col-sm-4">
+
+            <input type="text" class="form-control" value="@Model.Fecha" />
+
+        </div>
+
+        <div class="col-sm-2">
+
+            <h4 class="right">Recibió: </h4>
+
+        </div>
+
+        <div class="col-sm-3">
+
+            <h4 class="right">@Model.Recibe</h4>
+
+        </div>
+
+        
+
+    </div>
+
+    
+</div>
+
+

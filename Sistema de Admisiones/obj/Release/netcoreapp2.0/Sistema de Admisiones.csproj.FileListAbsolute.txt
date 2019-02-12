@@ -1,0 +1,12 @@
+C:\Proyectos ASP MVC\Sistema de Admisiones\Sistema de Admisiones\obj\Release\netcoreapp2.0\Sistema de Admisiones.csproj.CoreCompileInputs.cache
+C:\Proyectos ASP MVC\Sistema de Admisiones\Sistema de Admisiones\obj\Release\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Proyectos ASP MVC\Sistema de Admisiones\Sistema de Admisiones\obj\Release\netcoreapp2.0\Sistema de Admisiones.AssemblyInfoInputs.cache
+C:\Proyectos ASP MVC\Sistema de Admisiones\Sistema de Admisiones\obj\Release\netcoreapp2.0\Sistema de Admisiones.AssemblyInfo.cs
+C:\Proyectos ASP MVC\Sistema de Admisiones\Sistema de Admisiones\obj\Release\netcoreapp2.0\Sistema de Admisiones.csprojAssemblyReference.cache
+C:\Proyectos ASP MVC\Sistema de Admisiones\Sistema de Admisiones\bin\Release\netcoreapp2.0\Sistema_de_Admisiones.deps.json
+C:\Proyectos ASP MVC\Sistema de Admisiones\Sistema de Admisiones\bin\Release\netcoreapp2.0\Sistema_de_Admisiones.runtimeconfig.json
+C:\Proyectos ASP MVC\Sistema de Admisiones\Sistema de Admisiones\bin\Release\netcoreapp2.0\Sistema_de_Admisiones.runtimeconfig.dev.json
+C:\Proyectos ASP MVC\Sistema de Admisiones\Sistema de Admisiones\bin\Release\netcoreapp2.0\Sistema_de_Admisiones.dll
+C:\Proyectos ASP MVC\Sistema de Admisiones\Sistema de Admisiones\bin\Release\netcoreapp2.0\Sistema_de_Admisiones.pdb
+C:\Proyectos ASP MVC\Sistema de Admisiones\Sistema de Admisiones\obj\Release\netcoreapp2.0\Sistema_de_Admisiones.dll
+C:\Proyectos ASP MVC\Sistema de Admisiones\Sistema de Admisiones\obj\Release\netcoreapp2.0\Sistema_de_Admisiones.pdb

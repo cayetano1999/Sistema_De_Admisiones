@@ -1,0 +1,97 @@
+﻿@model IEnumerable<Sistema_de_Admisiones.Models.Evaluaciones>
+@{ 
+    ViewData["Title"] = "Index";
+}
+
+<h2 class="text-info text-center"> <span> <img src="~/images/evaluacion.png" style="width:50px;" /> </span>  Evaluaciones</h2>
+<br />
+<div class="form-border well" >
+    <table class="table table-condensed table-hover table-responsive table-responsive" style="background-color:white;">
+        <tr>
+
+            <th style="background-color:#4086CC">
+                Id Evaluación
+            </th>
+
+            <th style="background-color:#4086CC">
+                Fecha
+            </th>
+
+            <th style="background-color:#4086CC">
+                Nombre de Evaluación
+            </th>
+            <th style="background-color:#4086CC">
+                Estado
+            </th>
+
+            <th style="background-color:#4086CC">
+                Acciónes
+            </th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+
+
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(m => item.ID_Evaluacion)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(m => item.Fecha)
+                </td>
+
+                <td>
+                  <span><img src="~/images/neurology.png" style="width:20px"/> </span>  @Html.DisplayFor(m => item.Nombre_Evaluacion)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.Estado)
+                </td>
+                
+
+
+                <td>
+                    @Html.Partial("_BotonesIndividuales",
+                                      new BotonesIndividuales
+                                      {
+
+                                          action="#",
+                                          tipo_boton= "btn-primary",
+                                          icono= "exclamation-sign",
+                                          bonton_texto="Eliminar",
+                                          
+
+                                      })
+                </td>
+            </tr>
+
+
+
+        }
+    </table>
+
+
+
+    <div class="alert alert-info" role="alert">
+        
+        <strong>NOTA:</strong> <a class="text-info text-center">Las evaluaciones asignadas se toman de forma precencial en el centro educativo</a>
+    </div>
+    <div>
+
+        <span><img src="~/images/question.png" style="width:30px"/></span> <a class="text-info">Ayuda</a>
+
+    </div>
+
+    @if (Model.Count() == 0)
+    {
+        <div class="alert alert-danger" role="alert">
+            No hay evaluaciones
+        </div>
+
+    }
+
+
+</div>

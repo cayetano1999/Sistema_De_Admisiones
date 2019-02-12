@@ -1,0 +1,114 @@
+﻿@model IEnumerable< Sistema_de_Admisiones.ViewModel.EvaluacionAsignadaViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Prueba de Vista SQL</h2>
+
+
+
+
+<div class="form-border well">
+    <table class="table table-condensed table-hover" style="background-color:white;">
+        <tr>
+
+            <th style="background-color:#4086CC">
+                Id Evaluación
+            </th>
+
+            <th style="background-color:#4086CC">
+                Nombre de Evaluación
+            </th>
+
+            <th style="background-color:#4086CC">
+                Usuario
+            </th>
+            <th style="background-color:#4086CC">
+                Fecha
+            </th>
+
+            <th style="background-color:#4086CC">
+                Estado
+            </th>
+
+
+            <th style="background-color:#4086CC">
+                Id Usuario
+            </th>
+
+            <th style="background-color:#4086CC">
+                Acciones
+            </th>
+
+        </tr>
+
+       
+        @foreach (var item in Model)
+        {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(m=>item.Id_Evaluacion)
+            </td>
+
+            <td>
+                <span><img src="~/images/neurology.png" style="width:20px" /></span>  @Html.DisplayFor(m=>item.Nombre_Evaluacion)
+            </td>
+
+
+            <td>
+                @Html.DisplayFor(m=>item.Usuario)
+            </td>
+
+
+            <td>
+                @Html.DisplayFor(m => item.Fecha)
+            </td>
+
+
+            <td>
+                @Html.DisplayFor(m => item.Estado)
+            </td>
+
+            <td>
+                @Html.DisplayFor(m => item.ID_Usuario)
+            </td>
+
+
+            <td>
+                @Html.Partial("_BotonesIndividuales",
+                                   new BotonesIndividuales
+                                   {
+
+                                       action = "Verificar",
+                                       tipo_boton = "btn-primary",
+                                       icono = "exclamation-sign",
+                                       bonton_texto = "Eliminar",
+                                       ID_Evaluacion = item.Id_Evaluacion
+
+                                   })
+            </td>
+        </tr>
+
+        }
+
+
+    </table>
+
+
+
+    <div class="alert alert-info" role="alert">
+
+        <strong>NOTA:</strong> <a class="text-info text-center">Las evaluaciones asignadas se toman de forma precencial en el centro educativo</a>
+    </div>
+    <div>
+
+        <span><img src="~/images/question.png" style="width:30px" /></span> <a class="text-info">Ayuda</a>
+
+    </div>
+
+   
+
+
+</div>
+
