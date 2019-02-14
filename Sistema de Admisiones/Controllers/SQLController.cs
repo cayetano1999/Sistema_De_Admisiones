@@ -31,7 +31,7 @@ namespace Sistema_de_Admisiones.Controllers
         {
             try
             {
-                cn = new SqlConnection("Server=tcp:cayetano.database.windows.net,1433;Initial Catalog=DBADMISIONES;Persist Security Info=False;User ID=cayetano1999;Password=02300893167Az;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+                cn = new SqlConnection("");
                 cn.Open();
             }
 
